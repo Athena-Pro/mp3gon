@@ -1,3 +1,7 @@
+ codex/set-up-vitest-for-testing
+node_modules/
+**/package-lock.json
+dist/
 codex/add-test-runner-and-initial-tests
 node_modules/
 package-lock.json

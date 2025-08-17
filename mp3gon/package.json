@@ -18,6 +18,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+ codex/set-up-vitest-for-testing
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
  codex/install-gitleaks,-trufflehog,-and-reuse
     "scan:secrets": "gitleaks detect --no-git --source . && trufflehog filesystem --directory .",
     "lint:license": "reuse lint"
@@ -37,7 +41,13 @@
     "@types/node": "^22.14.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
+ codex/set-up-vitest-for-testing
+    "vitest": "^1.6.1",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.1.6",
+    "jsdom": "^23.0.0"
     "vitest": "^1.6.0",
     "jsdom": "^24.0.0"
+ main
   }
 }
