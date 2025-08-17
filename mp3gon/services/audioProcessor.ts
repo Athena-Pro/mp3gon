@@ -768,12 +768,17 @@ function trimSilence(buffer: AudioBuffer, threshold = 0.005): AudioBuffer {
     if (firstSample === 0) return buffer;
 
     const newLength = buffer.length - firstSample;
-    const newBuffer = new AudioContext().createBuffer(buffer.numberOfChannels, newLength, buffer.sampleRate);
+    const newBuffer = new AudioBuffer({
+        length: newLength,
+        numberOfChannels: buffer.numberOfChannels,
+        sampleRate: buffer.sampleRate,
+    });
 
-    for(let i = 0; i < buffer.numberOfChannels; i++) {
-        newBuffer.copyToChannel(buffer.getChannelData(i).slice(firstSample), i);
+    for (let i = 0; i < buffer.numberOfChannels; i++) {
+        const channelData = buffer.getChannelData(i).subarray(firstSample);
+        newBuffer.copyToChannel(channelData, i, 0);
     }
-    
+
     return newBuffer;
 }
 
