@@ -18,6 +18,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+ codex/setup-eslint-and-prettier-configurations
+    "lint": "eslint -c .eslintrc.js \"**/*.{ts,tsx}\"",
+    "format": "prettier -w \"**/*.{ts,tsx,js,jsx,json,md}\""
  codex/add-typescript-and-ts-prune-scripts
     "typecheck": "tsc --noEmit",
     "prune": "ts-prune"
@@ -44,6 +47,12 @@
     "@types/node": "^22.14.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
+ codex/setup-eslint-and-prettier-configurations
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "prettier": "^3.3.3"
  codex/add-typescript-and-ts-prune-scripts
     "ts-prune": "^0.15.0"
  codex/set-up-vitest-for-testing
