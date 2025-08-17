@@ -1,3 +1,50 @@
+ codex/set-up-vitest-for-testing
 node_modules/
 **/package-lock.json
 dist/
+codex/add-test-runner-and-initial-tests
+node_modules/
+package-lock.json
+ codex/install-git-cliff-and-npm-version-tools
+**/node_modules/
+**/package-lock.json
+**/dist/
+ codex/create-.gitignore-with-entries-for-local-artifacts
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+build/
+
+# Environment files
+.env*
+.env.*.local
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Testing
+coverage/
+
+# Local environment
+.vscode/
+.DS_Store
+ codex/add-.env.example-and-update-readme
+.env.local
+ codex/run-source-map-explorer-after-build
+**/node_modules/
+**/dist/
+**/package-lock.json
+mp3gon/node_modules/
+mp3gon/dist/
+mp3gon/package-lock.json
+ main
