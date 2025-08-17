@@ -1,3 +1,4 @@
+ codex/create-.gitignore-with-entries-for-local-artifacts
 # Dependencies
 node_modules/
 
@@ -26,3 +27,14 @@ coverage/
 # Local environment
 .vscode/
 .DS_Store
+=======
+ codex/add-.env.example-and-update-readme
+.env.local
+ codex/run-source-map-explorer-after-build
+**/node_modules/
+**/dist/
+**/package-lock.json
+mp3gon/node_modules/
+mp3gon/dist/
+mp3gon/package-lock.json
+ main
