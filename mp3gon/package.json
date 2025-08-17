@@ -1,12 +1,41 @@
 {
   "name": "sonic-geometer",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mp3gon/mp3gon.git"
+  },
+  "homepage": "https://github.com/mp3gon/mp3gon#readme",
+  "bugs": {
+    "url": "https://github.com/mp3gon/mp3gon/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+ codex/setup-eslint-and-prettier-configurations
+    "lint": "eslint -c .eslintrc.js \"**/*.{ts,tsx}\"",
+    "format": "prettier -w \"**/*.{ts,tsx,js,jsx,json,md}\""
+ codex/add-typescript-and-ts-prune-scripts
+    "typecheck": "tsc --noEmit",
+    "prune": "ts-prune"
+ codex/set-up-vitest-for-testing
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
+ codex/install-gitleaks,-trufflehog,-and-reuse
+    "scan:secrets": "gitleaks detect --no-git --source . && trufflehog filesystem --directory .",
+    "lint:license": "reuse lint"
+ codex/add-test-runner-and-initial-tests
+    "test": "vitest"
+    "changelog": "git-cliff --output CHANGELOG.md",
+    "release": "npm version patch && version=$(node -p \"require('./package.json').version\") && git tag v$version && gh release create v$version"
+ main
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -17,6 +46,22 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+ codex/setup-eslint-and-prettier-configurations
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "prettier": "^3.3.3"
+ codex/add-typescript-and-ts-prune-scripts
+    "ts-prune": "^0.15.0"
+ codex/set-up-vitest-for-testing
+    "vitest": "^1.6.1",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.1.6",
+    "jsdom": "^23.0.0"
+    "vitest": "^1.6.0",
+    "jsdom": "^24.0.0"
+ main
   }
 }
