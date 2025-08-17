@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "changelog": "git-cliff --output CHANGELOG.md",
+    "release": "npm version patch && version=$(node -p \"require('./package.json').version\") && git tag v$version && gh release create v$version"
   },
   "dependencies": {
     "react": "^19.1.1",
