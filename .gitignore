@@ -1,3 +1,6 @@
+codex/add-test-runner-and-initial-tests
+node_modules/
+package-lock.json
  codex/install-git-cliff-and-npm-version-tools
 **/node_modules/
 **/package-lock.json
