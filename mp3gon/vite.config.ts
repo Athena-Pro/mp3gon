@@ -1,6 +1,15 @@
 import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
+import { geminiApiPlugin } from './api/gemini';
 
+ codex/create-api-route-for-gemini
+export default defineConfig({
+  plugins: [geminiApiPlugin()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '.'),
+    }
+  }
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
@@ -16,4 +25,5 @@ export default defineConfig(({ mode }) => {
         environment: 'jsdom'
       }
     };
+ main
 });

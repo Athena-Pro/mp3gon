@@ -1,5 +1,6 @@
 import { TransformationType } from '../types';
 
+ codex/create-api-route-for-gemini
  codex/update-environment-variable-settings
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -46,6 +47,10 @@ export async function generateSoundName(
   morphA?: TransformationType,
   morphB?: TransformationType
 ): Promise<string[]> {
+ codex/create-api-route-for-gemini
+  const response = await fetch('/api/gemini', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
  codex/update-environment-variable-settings
   if (!GEMINI_API_KEY) {
     throw new Error("API key is not configured.");
@@ -55,10 +60,30 @@ export async function generateSoundName(
     headers: {
       'Content-Type': 'application/json',
     },
+ main
     body: JSON.stringify({ sourceName, targetName, transformation, morphA, morphB }),
   });
 
   if (!response.ok) {
+ codex/create-api-route-for-gemini
+    let message = 'Failed to communicate with the AI name generator.';
+    try {
+      const errorData = await response.json();
+      if (errorData && typeof errorData.error === 'string') {
+        message = errorData.error;
+      }
+    } catch {
+      // ignore JSON parse errors
+    }
+    throw new Error(message);
+  }
+
+  const data = await response.json();
+  if (!data || !Array.isArray(data.names)) {
+    throw new Error('AI returned an unexpected data format.');
+  }
+  return data.names;
+=======
     const errorText = await response.text();
     throw new Error(errorText || 'Failed to communicate with the AI name generator.');
   }
@@ -148,4 +173,5 @@ export async function generateSoundName(
  main
   }
   throw new Error('AI returned an unexpected data format.');
+ main
 }
