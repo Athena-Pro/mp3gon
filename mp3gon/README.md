@@ -6,6 +6,23 @@ This contains everything you need to run and deploy your app.
 
 **Prerequisites:** Node.js
 
+ codex/add-gemini-api-endpoint-and-documentation
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` environment variable with your Gemini API key.
+3. Run the frontend:
+   `npm run dev`
+4. In a separate terminal start the backend API:
+   `npm run server`
+
+## Deployment
+
+The backend server uses these environment variables:
+
+- `GEMINI_API_KEY` – required Gemini API key
+- `PORT` – optional port for the API server (defaults to 3001)
+
+Build the frontend with `npm run build` and launch the backend with `npm run server` on your deployment platform.
 Install dependencies:
 
 ```bash
@@ -49,3 +66,4 @@ npm run preview
 1. Set `GEMINI_API_KEY` in your production environment.
 2. Run `npm run build` to create the `dist` directory.
 3. Deploy the contents of `dist` to your preferred hosting provider (e.g., Vercel, Netlify, or any static file server).
+ main
