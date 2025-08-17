@@ -101,5 +101,56 @@ A playagon is an mp3gon whose time coordinate is reparameterized by \(T\). When 
 -   **Audio Processing:** Web Audio API, including AudioWorklets for real-time processing.
 -   **AI:** Google Gemini API
 
+## Development
+
+### Installation
+
+1. Ensure [Node.js](https://nodejs.org/) is installed.
+2. Navigate to the `mp3gon` directory and install dependencies:
+
+```bash
+cd mp3gon
+npm install
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the `mp3gon` directory and add your Gemini API key:
+
+```bash
+GEMINI_API_KEY=your_api_key_here
+```
+
+### Local Development
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+### Build
+
+Create an optimized production build:
+
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+### Production Deployment
+
+1. Set `GEMINI_API_KEY` in your production environment.
+2. Run `npm run build` to generate the `dist` directory.
+3. Deploy the contents of `dist` to your preferred static host (e.g., Vercel, Netlify, or any static file server).
+4. Optionally run `npm run preview` locally to verify the build before deployment.
+
 ---
 *Sonic Geometer - An Experiment in Geometric Sound Transformation.*
