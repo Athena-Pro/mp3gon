@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { generateSoundName } from '../services/geminiService';
+import { generateSoundName, isGeminiEnabled } from '../services/geminiService';
 import { TransformationType } from '../types';
 import Spinner from './Spinner';
 import { IconSparkles } from './Icons';
@@ -13,6 +13,14 @@ interface AIEnhancerProps {
 }
 
 export default function AIEnhancer({ sourceName, targetName, transformation, morphA, morphB }: AIEnhancerProps): React.ReactNode {
+  if (!isGeminiEnabled) {
+    return (
+      <div className="mt-8 pt-6 border-t border-gray-700/50 text-center text-gray-400">
+        AI features are disabled. Provide an API key to enable sound name suggestions.
+      </div>
+    );
+  }
+
   const [isLoading, setIsLoading] = useState(false);
   const [names, setNames] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
