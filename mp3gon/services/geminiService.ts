@@ -1,5 +1,9 @@
 import { TransformationType } from '../types';
 
+ codex/update-environment-variable-settings
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+if (!GEMINI_API_KEY) {
  codex/add-gemini-api-endpoint-and-documentation
 const API_KEY = process.env.API_KEY;
 export const isGeminiEnabled = Boolean(API_KEY);
@@ -8,12 +12,17 @@ let ai: GoogleGenAI | null = null;
 if (isGeminiEnabled) {
   ai = new GoogleGenAI({ apiKey: API_KEY! });
 } else {
+ main
   // This will prevent the app from breaking if the API key is not set.
   // The UI will handle the error gracefully.
   console.warn("Gemini API key not found. AI features will be disabled.");
 }
 
+ codex/update-environment-variable-settings
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY! });
+
  codex/wrap-googlegenai-instantiation-conditionally
+ main
 const nameGenerationSchema = {
   type: Type.OBJECT,
   properties: {
@@ -37,6 +46,9 @@ export async function generateSoundName(
   morphA?: TransformationType,
   morphB?: TransformationType
 ): Promise<string[]> {
+ codex/update-environment-variable-settings
+  if (!GEMINI_API_KEY) {
+    throw new Error("API key is not configured.");
  codex/add-gemini-api-endpoint-and-documentation
   const response = await fetch('/api/gemini', {
     method: 'POST',
@@ -57,6 +69,7 @@ export async function generateSoundName(
   if (!ai) {
     // Return empty array when AI is disabled to keep UI consistent
     return [];
+ main
   }
   const { GoogleGenAI, Type } = await import("@google/genai/web");
   const ai = new GoogleGenAI({ apiKey: API_KEY! });

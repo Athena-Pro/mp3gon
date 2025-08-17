@@ -9,8 +9,12 @@ This contains everything you need to run and deploy your app.
  codex/add-gemini-api-endpoint-and-documentation
 1. Install dependencies:
    `npm install`
+ codex/update-environment-variable-settings
+2. Set the `GEMINI_API_KEY` environment variable (e.g., in `.env.local`) to your Gemini API key
+3. Run the app:
 2. Set the `GEMINI_API_KEY` environment variable with your Gemini API key.
 3. Run the frontend:
+ main
    `npm run dev`
 4. In a separate terminal start the backend API:
    `npm run server`
