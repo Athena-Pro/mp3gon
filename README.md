@@ -160,4 +160,14 @@ npm run preview
 4. Optionally run `npm run preview` locally to verify the build before deployment.
 
 ---
+## Release preparation
+
+Before publishing a release, run security and license scans and archive their reports:
+
+```bash
+npm run scan:secrets
+npm run lint:license   # requires the REUSE tool
+```
+
+---
 *Sonic Geometer - An Experiment in Geometric Sound Transformation.*
