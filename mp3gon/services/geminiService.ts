@@ -1,15 +1,15 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { TransformationType } from '../types';
 
-const API_KEY = process.env.API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-if (!API_KEY) {
+if (!GEMINI_API_KEY) {
   // This will prevent the app from breaking if the API key is not set.
   // The UI will handle the error gracefully.
   console.warn("Gemini API key not found. AI features will be disabled.");
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY! });
 
 const nameGenerationSchema = {
   type: Type.OBJECT,
@@ -33,7 +33,7 @@ export async function generateSoundName(
   morphA?: TransformationType,
   morphB?: TransformationType
 ): Promise<string[]> {
-  if (!API_KEY) {
+  if (!GEMINI_API_KEY) {
     throw new Error("API key is not configured.");
   }
   
