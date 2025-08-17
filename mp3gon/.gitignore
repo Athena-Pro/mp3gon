@@ -1,5 +1,9 @@
+ codex/add-gemini-api-endpoint-and-documentation
 node_modules
 npm-debug.log*
 dist
 .env*
 package-lock.json
+node_modules/
+dist/
+ main
