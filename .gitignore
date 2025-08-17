@@ -1,3 +1,7 @@
+ codex/install-git-cliff-and-npm-version-tools
+**/node_modules/
+**/package-lock.json
+**/dist/
  codex/create-.gitignore-with-entries-for-local-artifacts
 # Dependencies
 node_modules/
@@ -27,7 +31,6 @@ coverage/
 # Local environment
 .vscode/
 .DS_Store
-=======
  codex/add-.env.example-and-update-readme
 .env.local
  codex/run-source-map-explorer-after-build
