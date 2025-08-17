@@ -31,6 +31,13 @@ Featuring a suite of advanced transformation algorithms, real-time microphone in
 
 ---
 
+## Environment Setup
+
+1. Copy `.env.example` to `.env.local`.
+2. Set `GEMINI_API_KEY` in `.env.local` to enable the AI Creative Assistant.
+
+The `.env.local` file is ignored by Git and should not be committed.
+
 ## How to Use
 
 1.  **Select a Source:**

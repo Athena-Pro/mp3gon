@@ -1,3 +1,5 @@
+ codex/add-.env.example-and-update-readme
+.env.local
  codex/run-source-map-explorer-after-build
 **/node_modules/
 **/dist/
