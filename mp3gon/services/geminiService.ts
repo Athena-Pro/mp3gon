@@ -1,4 +1,3 @@
-import { GoogleGenAI, Type } from "@google/genai";
 import { TransformationType } from '../types';
 
 const API_KEY = process.env.API_KEY;
@@ -8,23 +7,6 @@ if (!API_KEY) {
   // The UI will handle the error gracefully.
   console.warn("Gemini API key not found. AI features will be disabled.");
 }
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
-
-const nameGenerationSchema = {
-  type: Type.OBJECT,
-  properties: {
-    names: {
-      type: Type.ARRAY,
-      description: 'A list of 5 creative, evocative, and interesting names for the sound.',
-      items: {
-        type: Type.STRING
-      }
-    }
-  },
-  required: ['names']
-};
-
 
 export async function generateSoundName(
   sourceName: string,
@@ -36,19 +18,35 @@ export async function generateSoundName(
   if (!API_KEY) {
     throw new Error("API key is not configured.");
   }
-  
+  const { GoogleGenAI, Type } = await import("@google/genai/web");
+  const ai = new GoogleGenAI({ apiKey: API_KEY! });
+
+  const nameGenerationSchema = {
+    type: Type.OBJECT,
+    properties: {
+      names: {
+        type: Type.ARRAY,
+        description: 'A list of 5 creative, evocative, and interesting names for the sound.',
+        items: {
+          type: Type.STRING
+        }
+      }
+    },
+    required: ['names']
+  };
+
   let transformationDescription = `The transformation technique used was: "${transformation}".`;
   if (transformation === TransformationType.TRANSFORMATION_MORPH) {
     transformationDescription += ` This was a morph between two techniques: "${morphA}" (A) and "${morphB}" (B).`;
   }
-  
+
   const prompt = `
     I have created a new sound using a digital audio technique. I need some creative names for it.
-    
+
     The process involved two sounds:
     1.  Source Sound (whose characteristics were taken): "${sourceName}"
     2.  Target Sound (the sound that was modified): "${targetName}"
-    
+
     ${transformationDescription}
 
     Here are descriptions of the techniques:
@@ -90,7 +88,6 @@ export async function generateSoundName(
     }
   } catch (error) {
     console.error("Error calling Gemini API:", error);
-    // Check for specific API-related errors if possible, otherwise rethrow a generic error
     if (error instanceof Error && error.message.includes("API key not valid")) {
        throw new Error("The configured Gemini API key is not valid.");
     }

@@ -1,8 +1,19 @@
 {
   "name": "sonic-geometer",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mp3gon/mp3gon.git"
+  },
+  "homepage": "https://github.com/mp3gon/mp3gon#readme",
+  "bugs": {
+    "url": "https://github.com/mp3gon/mp3gon/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
