@@ -1,0 +1,19 @@
+[project]
+name = "sonichrome"
+version = "0.1.0"
+dependencies = [
+  "numpy",
+  "soundfile",
+  "librosa>=0.10",
+  "faiss-cpu",
+  "torch",
+  "torchaudio",
+  "laion-clap",
+  "PyYAML",
+  "pytest"
+]
+
+[project.scripts]
+audioindex-build = "audioindex.cli.build:main"
+audioindex-query = "audioindex.cli.query:main"
+codeclm-train   = "codeclm.train:train"
