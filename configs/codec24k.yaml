@@ -1,0 +1,3 @@
+model: { vocab: 3072, d: 768, L: 12, H: 12 }
+data:  { glob: "data/wavs/*.wav" }
+train: { lr: 3.0e-4, batch: 8, ctx: 8192 }
